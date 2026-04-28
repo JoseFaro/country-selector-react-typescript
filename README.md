@@ -1,50 +1,49 @@
-# React + TypeScript + Vite
+# Country Code Selector — React 18 + TypeScript
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Aplicación de selección de países con código telefónico, desarrollada
+como exploración de arquitectura frontend en React 18 con TypeScript.
 
-Currently, two official plugins are available:
+## Estructura del proyecto
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+    src/
+    ├── components/       # Librería de componentes UI
+    │   ├── button/
+    │   ├── card/
+    │   ├── input/
+    │   ├── layout/
+    │   ├── selector/
+    │   └── spacer/
+    ├── pages/            # Páginas con separación controller/view/styles
+    │   ├── countryDetail/
+    │   ├── dashboard/
+    │   └── notFound/
+    ├── theme/            # Sistema de tema centralizado
+    │   └── theme.config.ts
+    ├── config/           # Configuración global
+    ├── modules/          # Módulos de negocio
+    └── routes.tsx        # Definición de rutas
 
-## Expanding the ESLint configuration
+## Características técnicas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+- Componentización atómica de UI — button, card, input, layout,
+  selector y spacer como unidades independientes y reutilizables
+- Separación por página en tres capas — controller (lógica),
+  page (estructura) y styled (estilos)
+- Sistema de tema centralizado — `theme.config.ts` como fuente
+  única de tokens de diseño (colores, espaciados)
+- TypeScript estricto en componentes y páginas
+- Rutas definidas centralizadamente en `routes.tsx`
+- Prettier y configuración de linting incluidos
 
-- Configure the top-level `parserOptions` property like this:
+## Stack
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
-```
+- **Framework:** React 18, Vite
+- **Lenguaje:** TypeScript
+- **Estilos:** Styled Components
+- **Herramientas:** Prettier, ESLint
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## Contexto
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
-```
+Proyecto de exploración desarrollado en 2022 previo a Aeromexico.
+Enfoque en arquitectura de componentes, separación de responsabilidades
+y sistema de diseño a nivel programación.
